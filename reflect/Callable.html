@@ -1,0 +1,111 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+                <meta charset="utf-8">
+        <title>Library reflect / Class Callable</title>
+        <link rel="stylesheet" type="text/css"
+            href="../styles.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        </head>
+        <body data-library="reflect" data-type="Callable">
+        <div class="page">
+        <div class="header">
+          <a href="../index.html"><div class="logo"></div></a>
+          <a href="../index.html">Dart Documentation</a>
+         &rsaquo; <a href="../reflect.html">reflect</a> &rsaquo; <a href="../reflect/Callable.html">Callable</a></div>
+        <div class="nav">
+        
+<h2><div class="icon-library"></div><a href="../dart-ext_dart_reflect.html">dart-ext:dart_reflect</a></h2><h2><div class="icon-library"></div><a href="../dart_core.html">dart:core</a></h2><h2><div class="icon-library"></div><a href="../dart_coreimpl.html">dart:coreimpl</a></h2><h2><div class="icon-library"></div><a href="../dart_io.html">dart:io</a></h2><h2><div class="icon-library"></div><a href="../reflect.html">reflect</a></h2><ul class="icon">
+<li><div class="icon-class"></div><strong>Callable</strong></li>
+<li><a href="../reflect/Class.html"><div class="icon-class"></div>Class</a></li>
+<li><a href="../reflect/Instance.html"><div class="icon-class"></div>Instance</a></li>
+<li><a href="../reflect/Library.html"><div class="icon-class"></div>Library</a></li>
+</ul>
+<h2><div class="icon-library"></div><a href="../uri.html">uri</a></h2></div>
+<div class="content">
+        <h2>Class
+            <strong>Callable</strong></h2>
+        
+<div class="doc">
+<p>A closure-like object - a function, static method, or bound instance method.
+It can be invoked as <code>callable.call(arg1, arg2)</code> or <code>callable.invoke([arg1, arg2])</code>.</p>
+</div>
+<h3>Constructors</h3>
+<div class="method"><h4 id="Callable">
+<span class="show-code">Code</span>
+new <strong>Callable</strong>.fromClosure(closure, [description]) <a class="anchor-link" href="#Callable"
+              title="Permalink to Callable.Callable">#</a></h4>
+<div class="doc">
+<p>Creates a callable wrapping the 
+<span class="param">closure</span>.</p>
+<pre class="source">
+Callable.fromClosure(closure, [description]) :
+    _handler = null, _closure = closure, _description = description;
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="Callable">
+<span class="show-code">Code</span>
+new <strong>Callable</strong>.fromHandler(handler(<a href="../dart_core/List.html">List</a> args), [description]) <a class="anchor-link" href="#Callable"
+              title="Permalink to Callable.Callable">#</a></h4>
+<div class="doc">
+<p>Creates a <a class="crossref" href="../reflect/Callable.html">Callable</a> wrapping a 
+<span class="param">handler</span>, which is a closure taking
+its arguments as a <code>List</code>.</p>
+<pre class="source">
+Callable.fromHandler(handler(List args), [description]) :
+    _handler = handler, _closure = null, _description = description;
+</pre>
+</div>
+</div>
+<h3>Methods</h3>
+<div class="method"><h4 id="invoke">
+<span class="show-code">Code</span>
+<strong>invoke</strong>(<a href="../dart_core/List.html">List</a> args) <a class="anchor-link" href="#invoke"
+              title="Permalink to Callable.invoke">#</a></h4>
+<div class="doc">
+<p>Invokes this callable using 
+<span class="param">args</span> as the arguments.</p>
+<pre class="source">
+invoke(List args) {
+  if (_closure != null) return _callClosure(_closure, args);
+  return _handler(args);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="noSuchMethod">
+<span class="show-code">Code</span>
+<strong>noSuchMethod</strong>(method, args) <a class="anchor-link" href="#noSuchMethod"
+              title="Permalink to Callable.noSuchMethod">#</a></h4>
+<div class="doc">
+<p>Handles the variadic 'call' method by delegating to <a class="crossref" href="../reflect/Callable.html#invoke">invoke</a>.</p>
+<pre class="source">
+noSuchMethod(method, args) {
+  if (method == "call") return invoke(args);
+  return super.noSuchMethod(method, args);
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="toString">
+<span class="show-code">Code</span>
+<strong>toString</strong>() <a class="anchor-link" href="#toString"
+              title="Permalink to Callable.toString">#</a></h4>
+<div class="doc">
+
+<pre class="source">
+toString() =&gt; (_description == null) ? super.toString() : _description;
+</pre>
+</div>
+</div>
+        </div>
+        <div class="clear"></div>
+        </div>
+        
+        <div class="footer"></div>
+        <script async src="../client-static.js"></script>
+        </body></html>
+        

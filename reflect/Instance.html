@@ -1,0 +1,96 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+                <meta charset="utf-8">
+        <title>Library reflect / Class Instance</title>
+        <link rel="stylesheet" type="text/css"
+            href="../styles.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        </head>
+        <body data-library="reflect" data-type="Instance">
+        <div class="page">
+        <div class="header">
+          <a href="../index.html"><div class="logo"></div></a>
+          <a href="../index.html">Dart Documentation</a>
+         &rsaquo; <a href="../reflect.html">reflect</a> &rsaquo; <a href="../reflect/Instance.html">Instance</a></div>
+        <div class="nav">
+        
+<h2><div class="icon-library"></div><a href="../dart-ext_dart_reflect.html">dart-ext:dart_reflect</a></h2><h2><div class="icon-library"></div><a href="../dart_core.html">dart:core</a></h2><h2><div class="icon-library"></div><a href="../dart_coreimpl.html">dart:coreimpl</a></h2><h2><div class="icon-library"></div><a href="../dart_io.html">dart:io</a></h2><h2><div class="icon-library"></div><a href="../reflect.html">reflect</a></h2><ul class="icon">
+<li><a href="../reflect/Callable.html"><div class="icon-class"></div>Callable</a></li>
+<li><a href="../reflect/Class.html"><div class="icon-class"></div>Class</a></li>
+<li><div class="icon-class"></div><strong>Instance</strong></li>
+<li><a href="../reflect/Library.html"><div class="icon-class"></div>Library</a></li>
+</ul>
+<h2><div class="icon-library"></div><a href="../uri.html">uri</a></h2></div>
+<div class="content">
+        <h2>Class
+            <strong>Instance</strong></h2>
+        
+<div class="doc">
+<p>Wraps a Dart object.</p>
+</div>
+<h3>Constructors</h3>
+<div class="method"><h4 id="Instance">
+<span class="show-code">Code</span>
+new <strong>Instance</strong>.wrap(value) <a class="anchor-link" href="#Instance"
+              title="Permalink to Instance.Instance">#</a></h4>
+<div class="doc">
+<p>Returns an <a class="crossref" href="../reflect/Instance.html">Instance</a> wrapping 
+<span class="param">value</span>.</p>
+<pre class="source">
+Instance.wrap(value) : this.value = value {
+  _handle = _init(value);
+}
+</pre>
+</div>
+</div>
+<h3>Methods</h3>
+<div class="method"><h4 id="method">
+<span class="show-code">Code</span>
+<a href="../reflect/Callable.html">Callable</a> <strong>method</strong>(<a href="../dart_core/String.html">String</a> name) <a class="anchor-link" href="#method"
+              title="Permalink to Instance.method">#</a></h4>
+<div class="doc">
+<p>Returns a <a class="crossref" href="../reflect/Callable.html">Callable</a> wrapping the named instance method.
+Does not verify that the method exists.</p>
+<pre class="source">
+Callable method(String name) =&gt; new Callable.fromHandler(
+    (args) =&gt; _invoke(_handle, name, args), 
+    "Method ($value).$name");
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="toString">
+<span class="show-code">Code</span>
+<strong>toString</strong>() <a class="anchor-link" href="#toString"
+              title="Permalink to Instance.toString">#</a></h4>
+<div class="doc">
+
+<pre class="source">
+toString() =&gt; "Instance $value";
+</pre>
+</div>
+</div>
+<h3>Fields</h3>
+<div class="field"><h4 id="value">
+<span class="show-code">Code</span>
+final         <strong>value</strong> <a class="anchor-link"
+            href="#value"
+            title="Permalink to Instance.value">#</a>
+        </h4>
+        <div class="doc">
+
+<pre class="source">
+final value;
+</pre>
+</div>
+</div>
+        </div>
+        <div class="clear"></div>
+        </div>
+        
+        <div class="footer"></div>
+        <script async src="../client-static.js"></script>
+        </body></html>
+        

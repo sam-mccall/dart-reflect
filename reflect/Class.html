@@ -1,0 +1,108 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+                <meta charset="utf-8">
+        <title>Library reflect / Class Class</title>
+        <link rel="stylesheet" type="text/css"
+            href="../styles.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        </head>
+        <body data-library="reflect" data-type="Class">
+        <div class="page">
+        <div class="header">
+          <a href="../index.html"><div class="logo"></div></a>
+          <a href="../index.html">Dart Documentation</a>
+         &rsaquo; <a href="../reflect.html">reflect</a> &rsaquo; <a href="../reflect/Class.html">Class</a></div>
+        <div class="nav">
+        
+<h2><div class="icon-library"></div><a href="../dart-ext_dart_reflect.html">dart-ext:dart_reflect</a></h2><h2><div class="icon-library"></div><a href="../dart_core.html">dart:core</a></h2><h2><div class="icon-library"></div><a href="../dart_coreimpl.html">dart:coreimpl</a></h2><h2><div class="icon-library"></div><a href="../dart_io.html">dart:io</a></h2><h2><div class="icon-library"></div><a href="../reflect.html">reflect</a></h2><ul class="icon">
+<li><a href="../reflect/Callable.html"><div class="icon-class"></div>Callable</a></li>
+<li><div class="icon-class"></div><strong>Class</strong></li>
+<li><a href="../reflect/Instance.html"><div class="icon-class"></div>Instance</a></li>
+<li><a href="../reflect/Library.html"><div class="icon-class"></div>Library</a></li>
+</ul>
+<h2><div class="icon-library"></div><a href="../uri.html">uri</a></h2></div>
+<div class="content">
+        <h2>Class
+            <strong>Class</strong></h2>
+        
+<div class="doc">
+<p>Represents a Dart class.</p>
+</div>
+<h3>Methods</h3>
+<div class="method"><h4 id="constructor">
+<span class="show-code">Code</span>
+<a href="../reflect/Callable.html">Callable</a> <strong>constructor</strong>([<a href="../dart_core/String.html">String</a> name]) <a class="anchor-link" href="#constructor"
+              title="Permalink to Class.constructor">#</a></h4>
+<div class="doc">
+<p>Returns a <a class="crossref" href="../reflect/Callable.html">Callable</a> wrapping the (optionally named) constructor of this class.
+Does not verify that the constructor exists.</p>
+<pre class="source">
+Callable constructor([String name]) =&gt; new Callable.fromHandler(
+    (args) =&gt; _construct(_handle, name, args),
+    (name == null) ? "new ${this.name}" : "Constructor ${this.name}.$name");
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="method">
+<span class="show-code">Code</span>
+<a href="../reflect/Callable.html">Callable</a> <strong>method</strong>(<a href="../dart_core/String.html">String</a> name) <a class="anchor-link" href="#method"
+              title="Permalink to Class.method">#</a></h4>
+<div class="doc">
+<p>Returns a <a class="crossref" href="../reflect/Callable.html">Callable</a> wrapping the named static method on this class.
+Does not verify that the method exists.</p>
+<pre class="source">
+Callable method(String name) =&gt; new Callable.fromHandler(
+    (args) =&gt; _invoke(_handle, name, args),
+    "Method ${this.name}.$name");
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="toString">
+<span class="show-code">Code</span>
+<strong>toString</strong>() <a class="anchor-link" href="#toString"
+              title="Permalink to Class.toString">#</a></h4>
+<div class="doc">
+
+<pre class="source">
+toString() =&gt; "Class $name";
+</pre>
+</div>
+</div>
+<h3>Fields</h3>
+<div class="field"><h4 id="library">
+<span class="show-code">Code</span>
+final <a href="../reflect/Library.html">Library</a>         <strong>library</strong> <a class="anchor-link"
+            href="#library"
+            title="Permalink to Class.library">#</a>
+        </h4>
+        <div class="doc">
+
+<pre class="source">
+final Library library;
+</pre>
+</div>
+</div>
+<div class="field"><h4 id="name">
+<span class="show-code">Code</span>
+final <a href="../dart_core/String.html">String</a>         <strong>name</strong> <a class="anchor-link"
+            href="#name"
+            title="Permalink to Class.name">#</a>
+        </h4>
+        <div class="doc">
+
+<pre class="source">
+final String name;
+</pre>
+</div>
+</div>
+        </div>
+        <div class="clear"></div>
+        </div>
+        
+        <div class="footer"></div>
+        <script async src="../client-static.js"></script>
+        </body></html>
+        

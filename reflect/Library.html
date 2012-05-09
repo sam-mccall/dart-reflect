@@ -1,0 +1,112 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+                <meta charset="utf-8">
+        <title>Library reflect / Class Library</title>
+        <link rel="stylesheet" type="text/css"
+            href="../styles.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="../favicon.ico">
+        
+        </head>
+        <body data-library="reflect" data-type="Library">
+        <div class="page">
+        <div class="header">
+          <a href="../index.html"><div class="logo"></div></a>
+          <a href="../index.html">Dart Documentation</a>
+         &rsaquo; <a href="../reflect.html">reflect</a> &rsaquo; <a href="../reflect/Library.html">Library</a></div>
+        <div class="nav">
+        
+<h2><div class="icon-library"></div><a href="../dart-ext_dart_reflect.html">dart-ext:dart_reflect</a></h2><h2><div class="icon-library"></div><a href="../dart_core.html">dart:core</a></h2><h2><div class="icon-library"></div><a href="../dart_coreimpl.html">dart:coreimpl</a></h2><h2><div class="icon-library"></div><a href="../dart_io.html">dart:io</a></h2><h2><div class="icon-library"></div><a href="../reflect.html">reflect</a></h2><ul class="icon">
+<li><a href="../reflect/Callable.html"><div class="icon-class"></div>Callable</a></li>
+<li><a href="../reflect/Class.html"><div class="icon-class"></div>Class</a></li>
+<li><a href="../reflect/Instance.html"><div class="icon-class"></div>Instance</a></li>
+<li><div class="icon-class"></div><strong>Library</strong></li>
+</ul>
+<h2><div class="icon-library"></div><a href="../uri.html">uri</a></h2></div>
+<div class="content">
+        <h2>Class
+            <strong>Library</strong></h2>
+        
+<div class="doc">
+<p>Represents a Dart library.</p>
+</div>
+<h3>Constructors</h3>
+<div class="method"><h4 id="Library">
+<span class="show-code">Code</span>
+new <strong>Library</strong>(<a href="../dart_core/String.html">String</a> url) <a class="anchor-link" href="#Library"
+              title="Permalink to Library.Library">#</a></h4>
+<div class="doc">
+<p>Wraps the library with the specified URL, loading it if it doesn't exist.
+
+<span class="param">url</span> may be absolute or relative to the working directory.
+Throws an exception if the library doesn't exist and can't be loaded.</p>
+<pre class="source">
+Library(String url) : this.url = url {
+  _handle = _init(
+    new Uri(scheme:"file", path:"${new Directory.current().path}/").resolve(url).toString(),
+    () =&gt; new File(url).readAsTextSync());
+}
+</pre>
+</div>
+</div>
+<h3>Methods</h3>
+<div class="method"><h4 id="getClass">
+<span class="show-code">Code</span>
+<a href="../reflect/Class.html">Class</a> <strong>getClass</strong>(<a href="../dart_core/String.html">String</a> name) <a class="anchor-link" href="#getClass"
+              title="Permalink to Library.getClass">#</a></h4>
+<div class="doc">
+<p>Returns a <a class="crossref" href="../reflect/Class.html">Class</a> wrapping the named class.
+Throws an exception if the class doesn't exist.</p>
+<pre class="source">
+Class getClass(String name) =&gt; new Class._internal(this, name);
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="method">
+<span class="show-code">Code</span>
+<a href="../reflect/Callable.html">Callable</a> <strong>method</strong>(<a href="../dart_core/String.html">String</a> name) <a class="anchor-link" href="#method"
+              title="Permalink to Library.method">#</a></h4>
+<div class="doc">
+<p>Returns a <a class="crossref" href="../reflect/Callable.html">Callable</a> wrapping the named top-level function.
+Does not verify that the function exists.</p>
+<pre class="source">
+Callable method(String name) =&gt; new Callable.fromHandler(
+    (args) =&gt; _invoke(_handle, name, args),
+    "Function $name");
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="toString">
+<span class="show-code">Code</span>
+<strong>toString</strong>() <a class="anchor-link" href="#toString"
+              title="Permalink to Library.toString">#</a></h4>
+<div class="doc">
+
+<pre class="source">
+toString() =&gt; "Library $url";
+</pre>
+</div>
+</div>
+<h3>Fields</h3>
+<div class="field"><h4 id="url">
+<span class="show-code">Code</span>
+final <a href="../dart_core/String.html">String</a>         <strong>url</strong> <a class="anchor-link"
+            href="#url"
+            title="Permalink to Library.url">#</a>
+        </h4>
+        <div class="doc">
+
+<pre class="source">
+final String url;
+</pre>
+</div>
+</div>
+        </div>
+        <div class="clear"></div>
+        </div>
+        
+        <div class="footer"></div>
+        <script async src="../client-static.js"></script>
+        </body></html>
+        

@@ -1,0 +1,84 @@
+        <!DOCTYPE html>
+        <html>
+        <head>
+                <meta charset="utf-8">
+        <title>uri</title>
+        <link rel="stylesheet" type="text/css"
+            href="styles.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" href="favicon.ico">
+        
+        </head>
+        <body data-library="uri">
+        <div class="page">
+        <div class="header">
+          <a href="index.html"><div class="logo"></div></a>
+          <a href="index.html">Dart Documentation</a>
+         &rsaquo; <a href="uri.html">uri</a></div>
+        <div class="nav">
+        
+<h2><div class="icon-library"></div><a href="dart-ext_dart_reflect.html">dart-ext:dart_reflect</a></h2><h2><div class="icon-library"></div><a href="dart_core.html">dart:core</a></h2><h2><div class="icon-library"></div><a href="dart_coreimpl.html">dart:coreimpl</a></h2><h2><div class="icon-library"></div><a href="dart_io.html">dart:io</a></h2><h2><div class="icon-library"></div><a href="reflect.html">reflect</a></h2><h2><div class="icon-library"></div><strong>uri</strong></h2><ul class="icon">
+<li><a href="uri/Uri.html"><div class="icon-class"></div>Uri</a></li>
+</ul>
+</div>
+<div class="content">
+<h2>Library <strong>uri</strong></h2>
+<div class="doc"></div>
+<h3>Functions</h3>
+<div class="method"><h4 id="merge">
+<span class="show-code">Code</span>
+<a href="dart_core/String.html">String</a> <strong>merge</strong>(<a href="dart_core/String.html">String</a> base, <a href="dart_core/String.html">String</a> reference) <a class="anchor-link" href="#merge"
+              title="Permalink to null.merge">#</a></h4>
+<div class="doc">
+
+<pre class="source">
+String merge(String base, String reference) {
+  if (base == "") return "/$reference";
+  return "${base.substring(0, base.lastIndexOf("/") + 1)}$reference";
+}
+</pre>
+</div>
+</div>
+<div class="method"><h4 id="removeDotSegments">
+<span class="show-code">Code</span>
+<a href="dart_core/String.html">String</a> <strong>removeDotSegments</strong>(<a href="dart_core/String.html">String</a> path) <a class="anchor-link" href="#removeDotSegments"
+              title="Permalink to null.removeDotSegments">#</a></h4>
+<div class="doc">
+
+<pre class="source">
+String removeDotSegments(String path) {
+  List&lt;String&gt; output = [];
+  bool appendSlash = false;
+  for (String segment in path.split("/")) {
+    appendSlash = false;
+    if (segment == "..") {
+      if (!output.isEmpty() &amp;&amp;
+          ((output.length != 1) || (output[0] != ""))) output.removeLast();
+      appendSlash = true;
+    } else if ("." == segment) {
+      appendSlash = true;
+    } else {
+      output.add(segment);
+    }
+  }
+  if (appendSlash) output.add("");
+  return Strings.join(output, "/");
+}
+</pre>
+</div>
+</div>
+<h3>Classes</h3>
+          <div class="type">
+          <h4>
+            <a href="uri/Uri.html"><strong>Uri</strong></a>
+          </h4>
+          </div>
+          
+        </div>
+        <div class="clear"></div>
+        </div>
+        
+        <div class="footer"></div>
+        <script async src="client-static.js"></script>
+        </body></html>
+        
